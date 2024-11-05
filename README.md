@@ -10,6 +10,7 @@ Orthogonal double nano-slot array
 Orthogonal double nano-slot array with phase modulation propagation (uniform phase gradient)  
 Dual-zone metasurface  
 Three-zone metasurface``*
+#### Important Functionality Description  
 1. In this tool, we use `metasurface_calculate.m` to transform pictures to info matrix (shape, rotation info for .gds).Then using the calculated info to generate .gds files.
 **So, run `metasurface_calculate.m` first, then run `GDS_generate<i>.m` to generate .gds files**
 2. You can modify the files or paths of `Origin_picture\pic.png` and `Origin_picture\pic(1).png` (in `metasurface_calculate.m`) to change the images for full-color display and multi-channel holographic display, respectively.
@@ -33,7 +34,11 @@ Crate = [0.5,380/580,240/483.3,185/414.3]; %光栅占空比
 The last three parameters in the list correspond to the structural parameters for when resonance occurs at the three different wavelengths for RGB (displaying different colors). For any material, these parameters can be determined using one of the following three methods:  
 - Consult literature: If there are existing metasurface designs using the same material, use the same parameters.  
 - Use Comsol simulation: Perform a parametric scan of different structural parameters to find the optimal parameters corresponding to the required resonant wavelengths.  
-- Use the dielectric model of the material for theoretical calculations: Obtain the analytical relationship between the structural parameters and resonant wavelengths (if you can...).  
+- Use the dielectric model of the material for theoretical calculations: Obtain the analytical relationship between the structural parameters and resonant wavelengths (if you can...).
+
+5. If you do not wish to use images to generate GDS information, you can also customize the GDS information matrix. Please directly define the `Img_color` matrix (which determines the structural parameters and colors) and the `Rotation` matrix (which determines the rotation angles, geometric phase, and is directly related to the `Comb_hologram` matrix) in `GDS_generate<i>.m`. It is recommended to define both matrices before running `GDS_generate<i>.m`. Please ensure that the sizes of both matrices match.  
+**if you decide to define `Rotation` matrix and `Img_color` matrix by yourself, please \*delete\* the following line:**  
+`Rotation = Comb_hologram*180/(2*pi); %注意几何相位为转动角Rot的两倍`
 ## File List:  
 #### Folder: source  
 - metasurface_calculate.m: Used to calculate the geometric parameters of the metasurface, which are provided to GDS_generate.m for layout generation.  
