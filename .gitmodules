@@ -1,0 +1,3 @@
+[submodule "MatlabGDSPhotonicsToolbox"]
+	path = MatlabGDSPhotonicsToolbox
+	url = https://github.com/nicolasayotte/MatlabGDSPhotonicsToolbox
