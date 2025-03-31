@@ -61,7 +61,7 @@ maxn = 100;  % 设置迭代次数
 % Hol_img(:,:,:,1) = imread("C:\Users\De'l'l\Desktop\pic_R.png");
 % Hol_img(:,:,:,2) = imread("C:\Users\De'l'l\Desktop\pic_B.png");
 % Hol_img(:,:,:,3) = imread("C:\Users\De'l'l\Desktop\pic_G.png");
-Hol_img = imread("Origin_picture\pic(1).png");
+Hol_img = imread("Origin_picture\pic_holo.png");
 
 Comb_img = zeros([size(Img_color),3]);
 Comb_hologram = zeros([size(Img_color)]);
