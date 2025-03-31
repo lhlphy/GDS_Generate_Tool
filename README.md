@@ -13,7 +13,7 @@ Three-zone metasurface``*
 #### Important Functionality Description  
 1. In this tool, we use `metasurface_calculate.m` to transform pictures to info matrix (shape, rotation info for .gds).Then using the calculated info to generate .gds files.
 **So, run `metasurface_calculate.m` first, then run `GDS_generate<i>.m` to generate .gds files**
-2. You can modify the files or paths of `Origin_picture\pic.png` and `Origin_picture\pic(1).png` (in `metasurface_calculate.m`) to change the images for full-color display and multi-channel holographic display, respectively.
+2. You can modify the files or paths of `Origin_picture\pic.png` and `Origin_picture\pic_holo.png` (in `metasurface_calculate.m`) to change the images for full-color display and multi-channel holographic display, respectively.
 3. You can change the image size in metasurface_calculate.m by modifying `imgsize`  
 `imgsize = [100,100]; % 图片大小（像素单元数量），过大的图片会导致生成过慢`  
 A larger image will cause slower generation speed.
@@ -53,7 +53,7 @@ The last three parameters in the list correspond to the structural parameters fo
 #### Folder: Original_picture  
 - Original_image.png: Original image for full-color display and multi-channel holography.  
 - pic.png: Preset original image for full-color display.  
-- pic(1).png: Preset original image for multi-channel holography.  
+- pic_holo.png: Preset original image for multi-channel holography.  
 
 #### Folder: Generated  
 - Full_Color_Display.png: Full-color display image after metasurface color matching.  
@@ -69,11 +69,11 @@ The last three parameters in the list correspond to the structural parameters fo
 - GDS_generate4.m ：绘制传播相位调制的正交双纳米槽阵列（均匀相位梯度）  
 - GDS_generate5.m ：绘制双分区超表面，用于将左右旋偏振光分离  
 - GDS_generate6.m ：绘制三分区超表面，用于多全息图（3*3=9）显示
-- LD.m：GDS_generate4-6中需要的用于计算SPPs波长的函数，内置Drude-Lorentz模型材料库（仅包含几种常用的材料）  
+- LD.m：GDS_generate4-6中需要的用于计算SPPs波长的函数，内置Drude-Lorentz模型材料库（仅包含几种常用的材料）。但是该脚本在项目中并未使用，理论上可以用材料的色散模型计算出对应的结构参数Period,a,b，但实际上这些参数一般直接通过Comsol模拟给出。  
 #### Folder: Original_picture  
 - Original_image.png ：用于全彩显示和多通道全息的原始图像  
 - pic.png : 预设的用于全彩显示的原始图像  
-- pic(1).png : 预设的用于多通道全息的原始图像  
+- pic_holo.png : 预设的用于多通道全息的原始图像  
 #### Folder: Generated  
 - 全彩显示图.png ：超表面色彩匹配后的全彩显示图  
 - metasurface_colourful_cells.png ：超表面结构单元色彩图，每个像素点对应一个超表面单元色彩  
